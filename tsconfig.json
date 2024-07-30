@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "controller/*": ["src/main/controller/*.controller"],
+      "service/*": ["src/main/service/*.service"],
+      "entity/*": ["src/main/entity/*.entity"],
+      "module/*": ["src/main/module/*.module"],
+      "guard/*": ["src/main/guard/*.guard"],
+      "pipe/*": ["src/main/pipe/*.pipe"],
+      "dto/*": ["src/main/dto/*.dto"],
+      "type/*": ["src/main/type/*.type"],
+    }
+  }
+}
