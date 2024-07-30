@@ -1,0 +1,28 @@
+version: '3.8'
+
+volumes:
+  sound_stats_db:
+  sound_stats_backend:
+
+services:
+  sound_stats_backend:
+    build: .
+    container_name: sound_stats_backend
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - sound_stats_backend:/api
+    depends_on:
+      - sound_stats_db
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=sound_stats_db
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE=sound_stats
+      - DB_SSL=false
+      - JWT_SECRET=secret
+      - JWT_EXPIRES_IN=3600
