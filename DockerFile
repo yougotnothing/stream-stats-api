@@ -1,8 +1,7 @@
-FROM node:21.0.0-alpine3.18
+FROM node:latest
 
 WORKDIR /api
-COPY . .
+COPY . /api
 RUN yarn install
-RUN yarn build
 EXPOSE 3000
 CMD ["yarn", "start:dev"]
