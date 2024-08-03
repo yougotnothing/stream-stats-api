@@ -11,7 +11,7 @@ import { UserEntity } from 'entity/user';
     UserEntity,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: ['.env', '.conf.env'],
       expandVariables: true,
     }),
     TypeOrmModule.forRootAsync({
