@@ -1,6 +1,7 @@
 import { UUID } from 'crypto';
-import { Links } from 'type/links';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { LinksEntity } from './links.entity';
+import * as bcrypt from 'bcrypt';
 
 @Entity('user_entity')
 export class UserEntity {
@@ -14,11 +15,18 @@ export class UserEntity {
   email: string;
 
   @Column('varchar')
+  avatar: string;
+
+  @Column('varchar', { length: 74 })
   password: string;
 
   @Column('varchar')
   avatar_url: string;
 
-  @Column('jsonb', { default: [] })
-  links: Array<Links>;
+  @OneToMany(() => LinksEntity, links => links.user_id)
+  links: LinksEntity[];
+
+  async validate(password: string): Promise<boolean> {
+    return await bcrypt.compare(password, this.password);
+  }
 }

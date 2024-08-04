@@ -1,5 +1,6 @@
 export enum Links {
-  'youtube music',
-  'spotify',
-  'soundcloud',
+  'youtube',
+  'twitch',
+  'trovo',
+  'kick',
 }
