@@ -21,7 +21,7 @@ module.exports = function (options, webpack) {
       }),
       new RunScriptWebpackPlugin({
         name: options.output.filename,
-        nodeArgs: ['--inspect=0.0.0.0:5858'],
+        nodeArgs: ['--inspect=0.0.0.0:5175'],
       }),
     ],
   };

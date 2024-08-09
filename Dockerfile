@@ -4,6 +4,7 @@ WORKDIR /api
 
 COPY package.json .
 COPY yarn.lock .
+COPY prisma ./prisma/
 
 RUN apt-get update && \
     apt-get install -y make gcc g++ python3 && \
