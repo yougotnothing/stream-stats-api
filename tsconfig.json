@@ -26,7 +26,8 @@
       "pipe/*": ["src/main/pipe/*.pipe"],
       "dto/*": ["src/main/dto/*.dto"],
       "type/*": ["src/main/type/*.type"],
-      "enum/*": ["src/main/enum/*.enum"]
+      "enum/*": ["src/main/enum/*.enum"],
+      "utils/*": ["src/main/utils/*.enum"]
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Links as LinksEnum } from 'enum/links';
+import { Links as LinksEnum } from 'utils/links';
 
 export type Links = Record<
   keyof typeof LinksEnum,
