@@ -15,24 +15,33 @@ datasource db {
 }
 
 model Links {
-  id     String @id @unique @default(uuid()) @db.Uuid
-  user   User   @relation(fields: [userId], references: [id])
+  id     String   @id @unique @default(uuid()) @db.Uuid
+  user   User     @relation(fields: [userId], references: [id])
   userId String
   link   String
+  type   LinkType
 }
 
 model User {
-  role         Role    @default(USER)
-  id           String  @id @default(uuid()) @db.Uuid
-  email        String  @unique
+  role         Role     @default(USER)
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique
   name         String
   links        Links[]
-  avatarUrl    String  @default("")
-  isHaveAvatar Boolean @default(false)
-  isVerified   Boolean @default(false)
+  avatarUrl    String   @default("")
+  isHaveAvatar Boolean  @default(false)
+  isVerified   Boolean  @default(false)
+  createdAt    DateTime @default(now())
 }
 
 enum Role {
   ADMIN
   USER
+}
+
+enum LinkType {
+  YOUTUBE
+  TWITCH
+  TROVO
+  KICK
 }
