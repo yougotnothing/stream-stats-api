@@ -15,4 +15,4 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["yarn", "start:hmr"]
+CMD yarn start:hmr

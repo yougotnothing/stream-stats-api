@@ -13,10 +13,16 @@ async function bootstrap() {
     SwaggerModule.createDocument(app, new DocumentBuilder().addOAuth2().build())
   );
 
-  await app.listen(5174);
+  app.enableCors();
+
+  await app.listen(5174).then(() => {
+    console.log(`Server started at http://localhost:${5174}`);
+  });
 
   if (module.hot) {
-    module.hot.accept();
+    module.hot.accept('./app.module', () => {
+      console.log('reloading...');
+    });
     module.hot.dispose(() => app.close());
   }
 }

@@ -7,7 +7,6 @@ module.exports = function (options, webpack) {
   return {
     ...options,
     entry: ['webpack/hot/poll?100', options.entry],
-    devtool: 'inline-source-map',
     externals: [
       nodeExternals({
         allowlist: ['webpack/hot/poll?100'],
@@ -21,8 +20,15 @@ module.exports = function (options, webpack) {
       }),
       new RunScriptWebpackPlugin({
         name: options.output.filename,
-        nodeArgs: ['--inspect=0.0.0.0:5175'],
+        signal: true,
+        nodeArgs: ['--inspect'],
+        keyboard: true,
       }),
     ],
+    watchOptions: {
+      poll: 500,
+      aggregateTimeout: 300,
+    },
+    stats: 'verbose',
   };
 };
