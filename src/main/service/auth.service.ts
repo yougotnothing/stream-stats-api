@@ -11,6 +11,9 @@ export class AuthService {
       data: {
         name: user.name,
         email: user.email,
+        isHaveAvatar: false,
+        isVerified: false,
+        password: user.password,
       },
     });
   }

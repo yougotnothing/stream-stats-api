@@ -50,8 +50,9 @@ model User {
   avatarUrl    String      @default("")
   isHaveAvatar Boolean     @default(false)
   isVerified   Boolean     @default(false)
-  createdAt    DateTime    @default(now())
+  createdAt    DateTime    @default(now()) @db.Timestamp
   twitch_user  TwitchUser?
+  password     String
 }
 
 enum Role {
